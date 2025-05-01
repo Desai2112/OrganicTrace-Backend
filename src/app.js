@@ -5,7 +5,6 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import mongoose from "mongoose";
 import { connectDB } from "./DB/ConnectDB.js";
-import authRoutes from './routes/auth.routes.js';
 
 const app = express();
 
@@ -55,6 +54,16 @@ app.use(
 );
 
 // Routes
+import authRoutes from './Routes/auth.routes.js';
+import productRoutes from './Routes/product.routes.js';
+import certificateRoutes from './Routes/certificate.routes.js';
+import auditRoutes from './Routes/audit.routes.js';
+import trackingRoutes from './Routes/tracking.routes.js';
+
 app.use('/api/auth', authRoutes);
+app.use('/api/product', productRoutes);
+app.use('/api/certificate', certificateRoutes);
+app.use('/api/audit', auditRoutes);
+app.use('/api/tracking', trackingRoutes);
 
 export default app;
